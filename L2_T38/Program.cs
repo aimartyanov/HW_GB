@@ -1,4 +1,4 @@
-﻿void ArrNum(int[] array)
+void ArrNum(int[] array)
 {
     for(int i = 0; i < array.Length; i++)
         {
@@ -16,20 +16,30 @@ void Print(int[] array)
 int size = new Random().Next(4,20);
 int[] array = new int[size];
 ArrNum(array);
-int min = array[0] ;
-int max = array[0];
-for (int i = 0; i < array.Length; i++)
+int Minarr(int[] array)
 {
-
-if (array[i] > max)
-{
-    max = array[i];
+    int min = array[0];
+    for (int i =0; i <array.Length;i++)
+    {
+        if (min > array[i])
+        {
+            min = array[i];
+        }
+    }
+    return min;
 }
-if (array[i] < min)
+int Maxarr(int[] array)
 {
-    min = array [i];
-}
+    int max = array[0];
+    for (int i =0; i <array.Length;i++)
+    {
+        if (max < array[i])
+        {
+            max = array[i];
+        }
+    }
+    return max;
 }
 Print(array);
-Console.WriteLine($"Максимальное значение {max}, минимальное значение {min}");
-Console.WriteLine($"Разница между максимальным и миниальным значением массива:  {max - min}");
+Console.WriteLine($"Максимальное значение {Maxarr(array)}, минимальное значение {Minarr(array)}");
+Console.WriteLine($"Разница между максимальным и миниальным значением массива:  {Maxarr(array) - Minarr(array)}");
