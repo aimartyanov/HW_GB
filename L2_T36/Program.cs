@@ -1,4 +1,4 @@
-﻿void ArrNum(int[] array)
+void ArrNum(int[] array)
 {
     for(int i = 0; i < array.Length; i++)
         {
@@ -16,6 +16,8 @@ void Print(int[] array)
 int size = new Random().Next(4,20);
 int[] array = new int[size];
 ArrNum(array);
+int Summ(int[] array)
+{
 int summ = 0;
 for (int i = 0; i < array.Length; i++)
 {
@@ -24,5 +26,7 @@ if (i% 2 != 0)
     summ+=array[i];
 }
 }
+return summ;
+}
 Print(array);
-Console.WriteLine($"Сумма цисел на нечетных позициях {summ}");
+Console.WriteLine($"Сумма цисел на нечетных позициях {Summ(array)}");
