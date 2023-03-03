@@ -2,25 +2,54 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Main
+{
     public static void main(String[] args) throws IOException
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        var a = reader.readLine();
-        var b = reader.readLine();
-        var c = reader.readLine();
-        double monthString = switch (c)
+        System.out.println("Введите первое число:");
+        double a = Double.parseDouble(reader.readLine());
+        System.out.println("Введите второе число:");
+        double b = Double.parseDouble(reader.readLine());
+        System.out.println("Введите оператор: +,-,/,*");
+        String op = reader.readLine();
+        double ans = 1;
+        switch (op)
         {
-            case "+" -> a + b;
-            case "-" -> "February";
-            case "/" -> "March";
-            case "*" -> "April";
-            case "%" -> "May";
-            case "//" -> "June";
-            case "sqr" -> "July";
-            case "sqrt" -> "August";
-            default -> "Invalid operator";
-        };
-        System.out.println(monthString);
+            case "+" ->
+            {
+                ans = a + b;
+                if (ans % 2 != 1 && ans % 2 != 0)
+                    System.out.format("%.2f", ans);
+                else
+                    System.out.println((int) ans);
+            }
+            case "-" ->
+            {
+                ans = a - b;
+                if (ans % 2 != 1 && ans % 2 != 0)
+                    System.out.format("%.2f", ans);
+                else
+                    System.out.println((int) ans);
+            }
+            case "/" ->
+            {
+                ans = a / b;
+                if (ans % 2 != 1 && ans % 2 != 0)
+                    System.out.format("%.2f", ans);
+                else
+                    System.out.println((int) ans);
+            }
+            case "*" ->
+            {
+                ans = a * b;
+                if (ans % 2 != 1 && ans % 2 != 0)
+                    System.out.format("%.2f", ans);
+                else
+                    System.out.println((int) ans);
+            }
+            default -> System.out.println("Invalid operator");
+        }
+
     }
 }
