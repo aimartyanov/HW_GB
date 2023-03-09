@@ -1,38 +1,27 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Main
 {
-    public static void main(String[] args) throws Exception {
-        String [] list = lib.ReadLineFromFile("dataForSelect.txt");
-        System.out.println(list[0]);
-        StringBuilder resultSelect = LineInList(list[0]);
-        System.out.println(resultSelect);
-    }
-    public static StringBuilder LineInList(String line) {
-        String line1 = line.replace("{", "");
-        String line2 = line1.replace("}", "");
-        String line3 = line2.replaceAll("\"", "");
-        System.out.println(line3);
-        StringBuilder result = new StringBuilder("select * from students where ");
-
-        String [] arrayData = line3.split(", ");
-        for (int i =0; i < arrayData.length; i++) {
-            String[] arrData = arrayData[i].split(":");
-            if(arrData[1].equals("null") == false) {
-                if (i != 0) {
-                    result.append(", ");
-                    result.append(arrData[0]);
-                    result.append(" = ");
-                    result.append(arrData[1]);
-                } else {
-                    result.append(arrData[0]);
-                    result.append(" = ");
-                    result.append(arrData[1]);
-                }
-            }
-
+    public static void main(String[] args)
+    {
+            String [] arrayData = {"фамилия:Иванов,оценка:5,предмет:математика",
+                                    "фамилия:Петрова,оценка:4,предмет:Информатика",
+                                    "фамилия:Краснов,оценка:5,предмет:Физика"};
+        for (String arrayDat : arrayData)
+        {
+            System.out.println(Print(arrayDat));
         }
-        return result;
     }
+        public static StringBuilder Print(String line)
+        {
+            StringBuilder result = new StringBuilder();
+            String [] listName = {"Студент ", " получил ", " по предмету "};
+            String line1 = line.replaceAll("\"", "");
+            String [] arrayData = line1.split(",");
+            for (int i =0; i < arrayData.length; i++)
+            {
+                String[] arrData = arrayData[i].split(":");
+                result.append(listName[i]);
+                result.append(arrData[1]);
+            }
+            return result;
+        }
 }

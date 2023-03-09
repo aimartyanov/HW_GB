@@ -66,6 +66,6 @@ public class Main
             }
         }
         logger.setLevel(Level.INFO);
-        logger.warning("Заверщение");
+        logger.info("Заверщение");
     }
 }
