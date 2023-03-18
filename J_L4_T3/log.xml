@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-03-18T21:49:52.146175Z</date>
+  <millis>1679176192146</millis>
+  <nanos>175000</nanos>
+  <sequence>0</sequence>
+  <logger>Main</logger>
+  <level>INFO</level>
+  <class>Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Ввод</message>
+</record>
+<record>
+  <date>2023-03-18T21:50:04.120497Z</date>
+  <millis>1679176204120</millis>
+  <nanos>497000</nanos>
+  <sequence>1</sequence>
+  <logger>Main</logger>
+  <level>INFO</level>
+  <class>Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Ввод</message>
+</record>
+<record>
+  <date>2023-03-18T21:50:07.285921Z</date>
+  <millis>1679176207285</millis>
+  <nanos>921000</nanos>
+  <sequence>2</sequence>
+  <logger>Main</logger>
+  <level>INFO</level>
+  <class>Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Ввод</message>
+</record>
+<record>
+  <date>2023-03-18T21:50:10.928297Z</date>
+  <millis>1679176210928</millis>
+  <nanos>297000</nanos>
+  <sequence>3</sequence>
+  <logger>Main</logger>
+  <level>INFO</level>
+  <class>Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Отработка switch</message>
+</record>
+</log>
