@@ -1,24 +1,26 @@
-public class Main
-{
-    public static void main(String[] args)
-    {
+import java.util.List;
 
-        Person node1 = new Person("First", "Man");
-        Person node2 = new Person("Second", "Man", node1);
-        Person node3 = new Person("Third", "Man", node2);
-        Person node4 = new Person("Fourth", "Man", node2);
+public class Main {
+    public static void main(String[] args) {
+        Person parent1 = new Person("Иван", "Иванов", 1960);
+        Person parent2 = new Person("Мария", "Иванова", 1965);
+        Person child1 = new Person("Алексей", "Иванов", 1990);
+        Person child2 = new Person("Ольга", "Иванова", 1995);
 
-        System.out.println("Перечень людей: " + Person.getPersons());
+        parent1.addChild(child1);
+        parent1.addChild(child2);
+        parent2.addChild(child1);
+        parent2.addChild(child2);
+        child1.setFather(parent1);
+        child1.setMother(parent2);
+        child2.setFather(parent1);
+        child2.setMother(parent2);
 
-        System.out.println("Дети человека 1: " + node1.getChildren());
-        System.out.println("Дети человека 2: " + node2.getChildren());
-        System.out.println("Дети человека 3: " + node3.getChildren());
+        GenealogyTree tree = new GenealogyTree(parent1);
 
-        System.out.println();
-
-        System.out.println("Родители человека 1: " + node1.getParent());
-        System.out.println("Родители человека 2: " + node2.getParent());
-        System.out.println("Родители человека 3: " + node3.getParent());
-        System.out.println("Родители человека 4: " + node4.getParent());
+        System.out.println("Дети Ивана Иванова: ");
+        for (Person child : tree.getChildren(parent1)) {
+            System.out.println(child.getFirstName() + " " + child.getLastName());
+        }
     }
 }
