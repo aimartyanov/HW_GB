@@ -1,90 +1,24 @@
-import java.util.ArrayList;
-import java.util.List;
+public class Main
+{
+    public static void main(String[] args)
+    {
 
-class Person {
-    String name;
-    int birthYear;
-    Person parent1;
-    Person parent2;
-    List<Person> children;
+        Person node1 = new Person("First", "Man");
+        Person node2 = new Person("Second", "Man", node1);
+        Person node3 = new Person("Third", "Man", node2);
+        Person node4 = new Person("Fourth", "Man", node2);
 
-    public Person(String name, int birthYear, Person parent1, Person parent2) {
-        this.name = name;
-        this.birthYear = birthYear;
-        this.parent1 = parent1;
-        this.parent2 = parent2;
-        this.children = new ArrayList<>();
-    }
+        System.out.println("Перечень людей: " + Person.getPersons());
 
-    public void addChild(Person child) {
-        children.add(child);
-    }
+        System.out.println("Дети человека 1: " + node1.getChildren());
+        System.out.println("Дети человека 2: " + node2.getChildren());
+        System.out.println("Дети человека 3: " + node3.getChildren());
 
-    @Override
-    public String toString() {
-        return name + " (" + birthYear + ")";
-    }
-}
+        System.out.println();
 
-class FamilyTree {
-    List<Person> people;
-
-    public FamilyTree() {
-        people = new ArrayList<>();
-    }
-
-    public void addPerson(Person person) {
-        people.add(person);
-    }
-
-    public Person findPerson(String name) {
-        for (Person person : people) {
-            if (person.name.equals(name)) {
-                return person;
-            }
-        }
-        return null;
-    }
-}
-
-class Research {
-    FamilyTree familyTree;
-
-    public Research(FamilyTree familyTree) {
-        this.familyTree = familyTree;
-    }
-
-    public List<Person> getChildren(String personName) {
-        Person person = familyTree.findPerson(personName);
-        if (person != null) {
-            return person.children;
-        } else {
-            return null;
-        }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        FamilyTree familyTree = new FamilyTree();
-
-        Person person1 = new Person("Алексей", 1970, null, null);
-        Person person2 = new Person("Ирина", 1975, null, null);
-        Person person3 = new Person("Михаил", 1999, person1, person2);
-        Person person4 = new Person("Елена", 2001, person1, person2);
-
-        person1.addChild(person3);
-        person1.addChild(person4);
-        person2.addChild(person3);
-        person2.addChild(person4);
-
-        familyTree.addPerson(person1);
-        familyTree.addPerson(person2);
-        familyTree.addPerson(person3);
-        familyTree.addPerson(person4);
-
-        Research research = new Research(familyTree);
-        List<Person> children = research.getChildren("Алексей");
-        System.out.println("Дети Алексея: " + children);
+        System.out.println("Родители человека 1: " + node1.getParent());
+        System.out.println("Родители человека 2: " + node2.getParent());
+        System.out.println("Родители человека 3: " + node3.getParent());
+        System.out.println("Родители человека 4: " + node4.getParent());
     }
 }
