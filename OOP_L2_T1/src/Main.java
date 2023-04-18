@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.io.IOException;
 import java.io.*;
@@ -27,17 +25,4 @@ public class Main {
             System.out.println(child.getFirstName() + " " + child.getLastName());
         }
     }
-    public static List<Person> sortByName(List<Person> people) {
-        List<Person> sortedList = new ArrayList<>(people);
-        sortedList.sort(Comparator.comparing(Person::getFirstName).thenComparing(Person::getLastName));
-        return sortedList;
-    }
-
-    public static List<Person> sortByBirthYear(List<Person> people) {
-        List<Person> sortedList = new ArrayList<>(people);
-        sortedList.sort(Comparator.comparingInt(Person::getBirthYear));
-        return sortedList;
-    }
 }
-
-

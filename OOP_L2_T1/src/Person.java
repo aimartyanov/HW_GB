@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Person implements Serializable
 
-    {
-        private String firstName;
-        private String lastName;
-        private int birthYear;
-        private Person mother;
-        private Person father;
-        private List<Person> children;
+{
+    private String firstName;
+    private String lastName;
+    private int birthYear;
+    private Person mother;
+    private Person father;
+    private List<Person> children;
 
     public Person(String firstName, String lastName, int birthYear){
         this.firstName = firstName;
@@ -19,40 +19,40 @@ public class Person implements Serializable
         this.children = new ArrayList<>();
     }
 
-        // Геттеры и сеттеры для полей класса
-        public String getFirstName () {
+    // Геттеры и сеттеры для полей класса
+    public String getFirstName () {
         return firstName;
     }
 
-        public String getLastName () {
+    public String getLastName () {
         return lastName;
     }
 
-        public int getBirthYear () {
+    public int getBirthYear () {
         return birthYear;
     }
 
-        public Person getMother () {
+    public Person getMother () {
         return mother;
     }
 
-        public void setMother (Person mother){
+    public void setMother (Person mother){
         this.mother = mother;
     }
 
-        public Person getFather () {
+    public Person getFather () {
         return father;
     }
 
-        public void setFather (Person father){
+    public void setFather (Person father){
         this.father = father;
     }
 
-        public List<Person> getChildren () {
+    public List<Person> getChildren () {
         return children;
     }
 
-        public void addChild (Person child){
+    public void addChild (Person child){
         this.children.add(child);
     }
-    }
+}
